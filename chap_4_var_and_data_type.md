@@ -5,7 +5,15 @@
     1.1. python3的关键字（注意：不要使用关键字来自定义变量或者类名称。）
 
     ```python
-   
+    False               class               from                or
+    None                continue            global              pass
+    True                def                 if                  raise
+    and                 del                 import              return
+    as                  elif                in                  try
+    assert              else                is                  while
+    async               except              lambda              with
+    await               finally             nonlocal            yield
+    break               for                 not
     ```
 
     -|-|内置函数|-|-
