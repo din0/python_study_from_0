@@ -69,5 +69,3 @@ else:
 ...
 tom is here
 ```
-
-
