@@ -169,4 +169,118 @@
 
 4. 传递列表
 
+    遍历列表并输出列表元素：
+
+    ```python
+    >>> def hello(names):
+    ...  for i in names:
+    ...   msg = 'hello,' + i + '!'
+    ...   print(msg)
+    ...
+    >>> hello(names)
+    hello,tom!
+    hello,lisa!
+    hello,jim!
+    ```
+
+    列表传递：
+
+    不用函数：
+
+    ```python
+    >>> warehouse = ['apple','orange','banana']
+    >>> shop = []
+    >>> while warehouse:
+    ...  truck = warehouse.pop()
+    ...  print(truck)
+    ...  shop.append(truck)
+    ...
+    banana
+    orange
+    apple
+    >>> shop
+    ['banana', 'orange', 'apple']
+    >>> warehouse
+    []
+    ```
+
+    使用函数：
+
+    ```python
+    >>> def transport(warehouse, shop):
+    ...  while warehouse:
+    ...   truck = warehouse.pop()
+    ...   print(truck)
+    ...   shop.append(truck)
+    ...
+    >>> warehouse = ['apple','orange','banana']
+    >>> shop = []
+    >>> transport(warehouse, shop)
+    banana
+    orange
+    apple
+    >>> shop
+    ['banana', 'orange', 'apple']
+    >>> warehouse
+    []
+    ```
+
+    传递列表后，保存原有列表：使用切片来创建原有列表的副本 list[:]
+
+    ```python
+    >>> transport(warehouse[:], shop)
+    banana
+    orange
+    apple
+    >>> warehouse
+    ['apple', 'orange', 'banana']
+    >>> shop
+    ['banana', 'orange', 'apple']
+    ```
+
+    练习：
+    伟大的魔术师：在新建列表中魔术师名字前面都加上’the great‘
+
+    ```python
+    >>> def make_great(magicians):
+    ...  while magicians:
+    ...   magician = magicians.pop()
+    ...   great_magician = 'The Great ' + magician.title()
+    ...   great_magicians.append(great_magician)
+    ...  print(great_magicians)
+    ...
+    >>> magicians = ['criss angel','david blaine', 'david copperfield']
+    >>> great_magicians = []
+    >>> make_great(magicians[:])
+    ['The Great David Copperfield', 'The Great David Blaine', 'The Great Criss Angel']
+    ```
+
+5. 不定数量实参
+
+    不定长参数，使用 *，以元组的形式导入，存放未命名的变量参数。
+
+    ```python
+    >>> def infi(*tuple):
+    ...  print(tuple)
+    ...
+    >>> infi('a','b','c')
+    ('a', 'b', 'c')
+    ```
+
+    任意数量关键字实参，使用 **，以字典形式导入：
+
+    ```python
+    >>> def profile(first, last, **info):
+    ...  prof = {}
+    ...  prof['first_name'] = first
+    ...  prof['last_name'] = last
+    ...  for k, v in info.items():
+    ...   prof[k] = v
+    ...  return prof
+    ...
+    >>> profile('tom', 'cruise', location='USA', gender='male')
+    {'first_name': 'tom', 'last_name': 'cruise', 'location': 'USA', 'gender': 'male'}
+    ```
+
+6. 导入外部函数模块
 
