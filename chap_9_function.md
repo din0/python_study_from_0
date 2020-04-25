@@ -282,5 +282,114 @@
     {'first_name': 'tom', 'last_name': 'cruise', 'location': 'USA', 'gender': 'male'}
     ```
 
-6. 导入外部函数模块
+6. 导入外部函数模块: import语句
 
+    新建 func.py 文件
+
+    ```python
+    def transport(warehouse, shop):
+      while warehouse:
+        truck = warehouse.pop()
+        print(truck)
+        shop.append(truck)
+      print(shop)
+
+    def hello(names):
+      for i in names:
+        msg = 'hello,' + i + '!'
+        print(msg)
+    ```
+
+    test.py 执行文件
+
+    ```python
+    import func
+
+    names = ['jim','tom','lisa']
+    func.hello(names)
+
+    warehouse = ['apple','orange','banana']
+    shop = []
+    func.transport(warehouse, shop)
+    ```
+
+    运行程序：
+
+    ```python
+    $ python3 test.py
+    hello,dino!
+    hello,tom!
+    hello,lisa!
+    banana
+    orange
+    apple
+    ['banana', 'orange', 'apple']
+    ```
+
+7. 导入模块中特定的函数：from...import...
+    test.py 执行文件
+
+    ```python
+    from func import hello, transport
+
+    names = ['jim','tom','lisa']
+    hello(names)
+
+    warehouse = ['apple','orange','banana']
+    shop = []
+    transport(warehouse, shop)
+    ```
+
+8. 自定义函数名，模块名
+
+    ```python
+    from func import transport as trans
+
+    trans()
+    ```
+
+    ```python
+    import func as fn
+
+    fn.hello(names)
+    ```
+
+9. 导入模块中所有函数
+
+    ```python
+    from func import *
+
+    trans()
+    ```
+
+10. 总结：
+    关于模块和函数的用法，平常我们会创建一个 models.py 文件用来写入自定义函数。当我们需要调用模块中所有函数的时候就可以使用：import models；需要调用模块中具体的函数时使用：from models import function；若需要调用模块中所有函数则使用：from models import * 。在我们使用Django来开发Web应用的时候，自定义函数都会写在应用目录下的models.py中以便于调用。
+
+11. 深入模块
+
+    __name__属性的使用
+    当一个模块被引用时，如果想在引用时某一程序不执行，可以用__name__来使该程序块仅在该模块文件运行时执行：
+
+    ```python
+    if __name__ == '__main__':
+      print('该模块运行时才执行')
+    else:
+      print('该模块文件被调用时执行')
+    ```
+
+    dir()函数：
+    找到模块内定义的所有名称。
+
+    ```python
+    >>> import fibo
+    >>> dir(fibo)
+    ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'fib', 'fib2']
+    ```
+
+12. 包的用法
+    注意当使用 from package import item 这种形式的时候，对应的 item 既可以是包里面的子模块（子包），或者包里面定义的其他名称，比如函数，类或者变量。
+
+    import 语法会首先把 item 当作一个包定义的名称，如果没找到，再试图按照一个模块去导入。如果还没找到，抛出一个 :exc:ImportError 异常。
+
+    反之，如果使用形如 import item.subitem.subsubitem 这种导入形式，除了最后一项，都必须是包，而最后一项则可以是模块或者是包，但是不可以是类，函数或者变量的名字。
+    
