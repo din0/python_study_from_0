@@ -25,6 +25,7 @@ filenames = ['ai.txt','pi_digits.txt','guests.txt','hi.txt']
 for filename in filenames:
     count_words(filename)
 '''
+
 '''
 import json
 num = [1,2,3,4,5,6,7]
@@ -38,6 +39,7 @@ with open(filename) as file_object:
     numbers = json.load(file_object)
 print(numbers)
 '''
+
 '''
 import json
 
@@ -53,17 +55,49 @@ with open(filename) as file_object:
     username = json.load(file_object)
     print("欢迎回来，" + username + "!")
 '''
-import json
-filename = 'username.json'
 
-try:
-    with open(filename) as file_object:
-        username = json.load(file_object)
-        # print("欢迎回来，" + username + "!")
-except FileNotFoundError:
+
+# import json
+# filename = 'username.json'
+
+# try:
+#     with open(filename) as file_object:
+#         username = json.load(file_object)
+#         # print("欢迎回来，" + username + "!")
+# except FileNotFoundError:
+#     username = input("请输入您的姓名：")
+#     with open(filename,'w') as file_object:
+#         json.dump(username, file_object)
+#         print("您好，" + username + "!")
+# else:
+#     print("欢迎回来，" + username + "!")
+
+
+import json
+
+def get_stored_user():
+    filename = 'username.json'
+    try:
+        with open(filename) as file_object:
+            username = json.load(file_object)
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+def new_user():
     username = input("请输入您的姓名：")
+    filename = 'username.json'
     with open(filename,'w') as file_object:
         json.dump(username, file_object)
+    return username
+        
+def greet_user():
+    username = get_stored_user()
+    if username:
+        print("欢迎回来，" + username + "!")
+    else:
+        username = new_user()
         print("您好，" + username + "!")
-else:
-    print("欢迎回来，" + username + "!")
+
+greet_user()

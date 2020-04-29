@@ -109,3 +109,34 @@
     ```
 
 6. 使用函数重构代码
+
+    ```python
+    import json
+
+    def get_stored_user():
+        filename = 'username.json'
+        try:
+            with open(filename) as file_object:
+                username = json.load(file_object)
+        except FileNotFoundError:
+            return None
+        else:
+            return username
+
+    def new_user():
+        username = input("请输入您的姓名：")
+        filename = 'username.json'
+        with open(filename,'w') as file_object:
+            json.dump(username, file_object)
+        return username
+
+    def greet_user():
+        username = get_stored_user()
+        if username:
+            print("欢迎回来，" + username + "!")
+        else:
+            username = new_user()
+            print("您好，" + username + "!")
+
+    greet_user()
+    ```
