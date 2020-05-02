@@ -94,3 +94,11 @@
 颜色配置文件，N-gram，语法树等。不过，这些进步还不足以达到我们的需求。
 >>>
 ```
+
+思考是不是在为自己工作，如果真的想成为企业家。要仔细思考！
+
+independent thinking
+creative drivens
+
+如果你继续努力，一切都有可能。
+once in your life, try something. work hard at something. try to change. nothing bad can happen. - jack ma

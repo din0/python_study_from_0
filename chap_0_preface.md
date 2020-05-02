@@ -10,3 +10,6 @@
 
 以上。
 2020.4.15
+
+教材《Python编程：从入门到实践》
+https://ehmatthes.github.io/pcc_2e/
