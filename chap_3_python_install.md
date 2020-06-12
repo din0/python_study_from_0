@@ -115,4 +115,4 @@
 
 4.2 Pycharm，专为Python开发使用的编辑器，安装即有环境，但只有社区版是免费的。[下载地址](https://www.jetbrains.com/zh-cn/pycharm/promo/)
 
-此外，还有一个在学习阶段使用会非常方便的就是基于 Anaconda运行环境的Jupyter，这个我们后面讲到虚拟环境的时候再说吧。
+4.3 Anaconda运行环境的Jupyter，这个我们后面讲到虚拟环境的时候再说吧。
